@@ -5,3 +5,7 @@ __pycache__/
 viz/lab_models.js
 viz/lab_data.js
 .venv/
+.auto-logs/
+REVIEW.md
+TASK_SUMMARY.md
+.autowf.env
