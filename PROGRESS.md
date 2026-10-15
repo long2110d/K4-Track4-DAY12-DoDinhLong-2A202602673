@@ -19,3 +19,8 @@
 - Answered all eight questions with cited numbers, rankings, uncertainty, and release limitations.
 - Documented missing per-seed PercMLP+ L2 values and frame-level AEB evidence without inventing results.
 - Verified report formatting and ran the required pytest suite: 25 tests passed.
+
+## Task 4: Submission check
+﻿- Ran the submission checker with --save-verify: all 56 checks passed, with no warnings or failures.
+- Saved the verification results to evidence/verify.txt; no report or evidence fixes were needed.
+- Ran the required pytest command with PYTHONUTF8=1: all 25 tests passed.
