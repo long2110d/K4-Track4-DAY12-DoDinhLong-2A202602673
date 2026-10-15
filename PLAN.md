@@ -13,51 +13,26 @@
 
 TEST_CMD: PYTHONUTF8=1 .venv/Scripts/python.exe -m pytest -q tests
 
-## Task 1: Test configuration sanity + replay.compare_with_tol
+## Task 1: Implement all six stubs (replay, scenarios, l2_summary, wilson, gate, dagger)
 
-- Ensure TEST_CMD runs (if `pytest` is missing in `.venv`, run `.venv/Scripts/python.exe -m pip install pytest`; do not add other files). Failures from other unimplemented stubs are expected at this stage.
-- Implement `compare_with_tol` in `lab12/replay.py` per its docstring and GUIDE.md Bước 1.
-- **Files:** `lab12/replay.py`.
-- **Acceptance:** `pytest -q tests -k "Replay"` passes (incl. `test_same_code_twice_is_identical_refactor_needs_tolerance`).
-
-## Task 2: Scenario metrics (ttc, required_decel, unavoidable, mine_braking)
-
-- Implement the four functions in `lab12/scenarios.py` per docstrings and GUIDE.md Bước 2. `ttc`/`required_decel` must work on numpy arrays (inf/no-closing cases as documented).
-- **Files:** `lab12/scenarios.py`.
-- **Acceptance:** `pytest -q tests -k "ttc or unavoidable or slide_examples or Mining"` passes.
-
-## Task 3: l2_summary and wilson
-
-- Implement `l2_summary` in `lab12/models.py` (Bước 3) and `wilson` in `lab12/stats.py` (Bước 4), including edge cases (n=0, k=0, k=n) as tested.
-- **Files:** `lab12/models.py`, `lab12/stats.py`.
-- **Acceptance:** `pytest -q tests -k "OpenLoop or wilson"` passes.
-
-## Task 4: Release gate rules
-
-- Implement `rule_closed_loop_logs` and `rule_scenario_grid` in `lab12/gate.py` per docstrings and GUIDE.md Bước 6 (follow the shape of existing rules in the same file).
-- **Files:** `lab12/gate.py`.
-- **Acceptance:** `pytest -q tests -k Gate` passes.
-
-## Task 5: DAgger windows
-
-- Implement `dagger_windows` in `lab12/augment.py` per docstring and GUIDE.md Bước 7 (same window layout as training data, expert labels).
-- **Files:** `lab12/augment.py`.
+- Because TEST_CMD runs the whole suite, implement ALL stubs in this one task: `compare_with_tol` (lab12/replay.py), `ttc`/`required_decel`/`unavoidable`/`mine_braking` (lab12/scenarios.py), `l2_summary` (lab12/models.py), `wilson` (lab12/stats.py), `rule_closed_loop_logs`/`rule_scenario_grid` (lab12/gate.py), `dagger_windows` (lab12/augment.py), per docstrings, GUIDE.md and tests.
+- **Files:** those six files only.
 - **Acceptance:** full TEST_CMD passes with 0 failures and 0 errors.
 
-## Task 6: Run the full pipeline
+## Task 2: Run the full pipeline
 
 - Run: `PYTHONUTF8=1 .venv/Scripts/python.exe run_all.py --student-id 2A202602673` (may take several minutes; use a long timeout). Fix any library bug it exposes in the six implemented functions only.
 - **Files:** generated `evidence/*` (and whatever `run_all.py` writes); no hand edits.
 - **Acceptance:** command exits 0; `evidence/` contains fresh outputs for student id 2A202602673; TEST_CMD still passes.
 
-## Task 7: Fill REPORT.md with real numbers
+## Task 3: Fill REPORT.md with real numbers
 
 - Fill `REPORT.md` header: name **Đỗ Đình Long**, MSSV **2A202602673**, GitHub **long2110d**.
 - Answer all 8 questions using only numbers read from files in `evidence/` (do not invent or round inconsistently). Each answer 4–8 lines and cites **at least 3 concrete numbers** from evidence. Keep the template's headings/structure; remove placeholder text. Check `RUBRIC.md` and `scripts/check_submission.py` for exact format requirements.
 - **Files:** `REPORT.md`.
 - **Acceptance:** every question has 4–8 lines with ≥3 numbers that appear in `evidence/`; no leftover placeholders; TEST_CMD passes.
 
-## Task 8: Submission check
+## Task 4: Submission check
 
 - Run `PYTHONUTF8=1 .venv/Scripts/python.exe scripts/check_submission.py --save-verify`. Fix any reported issue (in REPORT.md or rerun `run_all.py`) until 100% PASS.
 - **Files:** `REPORT.md` / `evidence/*` only if the checker requires; whatever file `--save-verify` writes.
