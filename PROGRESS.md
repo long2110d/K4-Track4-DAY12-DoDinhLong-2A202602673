@@ -13,3 +13,9 @@
 - Confirmed PercMLP+ passed all seven release-gate checks and received RELEASE.
 - No library bug fixes were required.
 - Ran the required pytest command after pipeline completion: 25 tests passed.
+
+## Task 3: Fill REPORT.md with real numbers
+- Filled REPORT.md with the student identity and evidence-based results.
+- Answered all eight questions with cited numbers, rankings, uncertainty, and release limitations.
+- Documented missing per-seed PercMLP+ L2 values and frame-level AEB evidence without inventing results.
+- Verified report formatting and ran the required pytest suite: 25 tests passed.
